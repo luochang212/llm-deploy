@@ -7,7 +7,7 @@
 .ipynb_checkpoints
 __pycache__
 
-model
-!/model/hugging_face.sh
+/model/*/
+!/model/
 
 all.ipynb
