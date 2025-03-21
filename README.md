@@ -1,17 +1,18 @@
+# llm-deploy
 
-> 2023 年本地部署大模型的报价近千万，2024 年初便骤降至百万，如今是 2025 年，只需要一行 vLLM 命令就可以部署大模型，人工成几近于零。
+> 2023 年本地部署大模型的报价近千万，2024 年初便骤降至百万，如今是 2025 年，只需要一行 vLLM 命令就可以部署大模型，人工成本几近于零。
 
 本文内容包括：
 
-- 三种方式部署 DeepSeek R1：Ollama, vLLM 和 Transformers
-- 使用 vLLM 部署 Qwen2.5-1.5B 模型
-- 安装 Open WebUI 作为本地部署模型的前端聊天框
+- 3 种方式部署 DeepSeek R1：Ollama, vLLM 和 Transformers
+- 使用 vLLM 部署 Qwen2.5 模型
+- 安装 Open WebUI 作为本地模型的前端聊天框
 - 通过 `vllm serve` 实现一行代码启动 vLLM 推理服务
 
 ✨ 快速部署说明在 [deploy](/deploy)，vLLM 服务启动脚本在 [server](/server).
 
 
-## 一、3 种方式部署 DeepSeek R1
+## 一、本地部署 DeepSeek R1
 
 大模型本地部署依赖推理引擎，目前比较流行的推理引擎有：
 
@@ -37,7 +38,7 @@
 3. Transformers
 
 
-## 二、vLLM 部署 Qwen2.5
+## 二、本地部署 Qwen2.5
 
 模型名带 `Instruct` 说明该模型是经过指令调优（Instruction Tuning）的版本，专为理解和执行用户指令优化，适合对话生成、任务导向型场景。
 
