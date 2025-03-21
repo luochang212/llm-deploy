@@ -10,6 +10,6 @@ vllm serve $qwen_model_path \
     --served-model-name Qwen/Qwen2.5-7B-Instruct \
     --host 0.0.0.0 \
     --port 8000 \
-    --gpu-memory-utilization 0.98 \
+    --gpu-memory-utilization 0.8 \
     --tensor-parallel-size 1 \
     --api-key token-kcgyrk

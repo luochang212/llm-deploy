@@ -39,11 +39,10 @@ llm_model = {}
 def load_model():
     llm = vllm.LLM(
         model=MODEL_PATH,
-        gpu_memory_utilization=0.95,
+        gpu_memory_utilization=0.8,
         max_model_len=4096,
         tensor_parallel_size=1,
-        enable_prefix_caching=True,
-        max_num_batched_tokens=51200
+        enable_prefix_caching=True
     )
 
     return llm
