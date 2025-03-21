@@ -15,11 +15,11 @@
 
 目前比较流行的推理引擎有：
 
-| 推理引擎                                                        |场景|介绍|
-|-------------------------------------------------------------| -- |-- |
-| [Ollama](https://github.com/ollama/ollama)                  |适合个人开发者|基于 [llama.cpp](https://github.com/ggml-org/llama.cpp) 开发，故能在 CPU 机器上使用|
-| [vLLM](https://github.com/vllm-project/vllm)                |适合高并发、低延迟的场景|支持多 GPU 并行、批处理，是 GPU 服务器部署的不二之选|
-| [Transformers](https://github.com/huggingface/transformers) |适合科研人员|既支持推理，也支持训练，可以深度自定义推理过程，但性能一般|
+|                           推理引擎                           | 场景                 | 介绍                                                                     |
+|:-----------------------------------------------------------:|:-------------------|:-----------------------------------------------------------------------|
+|         [Ollama](https://github.com/ollama/ollama)          | 适合个人开发者            | 基于 [llama.cpp](https://github.com/ggml-org/llama.cpp) 开发，故能在 CPU 机器上使用 |
+|        [vLLM](https://github.com/vllm-project/vllm)         | 适合高并发、低延迟的场景       | 支持多 GPU 并行、批处理，是 GPU 服务器部署的不二之选                                        |
+| [Transformers](https://github.com/huggingface/transformers) | 适合科研人员             | 既支持推理，也支持训练，可以深度自定义推理过程，但性能一般                                          |
 
 下面介绍如何部署这三款推理引擎，简要部署步骤见本项目的 [deploy](/deploy) 目录。
 
