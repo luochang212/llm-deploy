@@ -15,11 +15,11 @@
 
 目前比较流行的推理引擎有：
 
-|引擎|场景|介绍|
-| -- | -- |-- |
-|[Ollama](https://github.com/ollama/ollama)|适合个人开发者|基于 [llama.cpp](https://github.com/ggml-org/llama.cpp) 开发，故能在 CPU 机器上使用|
-|[vLLM](https://github.com/vllm-project/vllm)|适合高并发、低延迟的场景|支持多 GPU 并行、批处理，是 GPU 服务器部署的不二之选|
-|[Transformers](https://github.com/huggingface/transformers)|适合科研人员|既支持推理，也支持训练，可以深度自定义推理过程，但性能一般|
+| 推理引擎                                                        |场景|介绍|
+|-------------------------------------------------------------| -- |-- |
+| [Ollama](https://github.com/ollama/ollama)                  |适合个人开发者|基于 [llama.cpp](https://github.com/ggml-org/llama.cpp) 开发，故能在 CPU 机器上使用|
+| [vLLM](https://github.com/vllm-project/vllm)                |适合高并发、低延迟的场景|支持多 GPU 并行、批处理，是 GPU 服务器部署的不二之选|
+| [Transformers](https://github.com/huggingface/transformers) |适合科研人员|既支持推理，也支持训练，可以深度自定义推理过程，但性能一般|
 
 下面介绍如何部署这三款推理引擎，简要部署步骤见本项目的 [deploy](/deploy) 目录。
 
@@ -43,10 +43,15 @@
 
 部署前要先下载模型文件：
 
+```
+# 安装 huggingface_hub
+pip install -U huggingface_hub
 
-推理效果：
-
-![](/img/qwen_result.png)
+cd model
+huggingface-cli download \
+    --resume-download Qwen/Qwen2.5-1.5B-Instruct \
+    --local-dir ./Qwen2.5-1.5B-Instruct
+```
 
 
 ## 三、Open WebUI 作为前端聊天框
@@ -54,10 +59,6 @@
 第一节我用 3 种方式部署本地大模型：Ollama, vLLM 和 Transformers.
 
 有了本地部署的大模型作为推理后端，还要连接到前端聊天框，才算是完整。开源聊天框有很多，比如 AnythingLLM, LM Studio. 比较了一圈，姑且使用 [Open WebUI](https://github.com/open-webui/open-webui). 它有预开发的账号系统和历史记录，支持快速开发 RAG 和联网搜索。
-
-它的界面长这样：
-
-![](/img/open_webui.jpg)
 
 目录：
 
