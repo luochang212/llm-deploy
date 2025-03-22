@@ -16,13 +16,15 @@
 
 大模型本地部署依赖推理引擎，目前比较流行的推理引擎有：
 
-|                           推理引擎                           | 场景                 | 介绍                                                                     |
-|:-----------------------------------------------------------:|:-------------------|:-----------------------------------------------------------------------|
-|         [Ollama](https://github.com/ollama/ollama)          | 适合个人开发者            | 基于 [llama.cpp](https://github.com/ggml-org/llama.cpp) 开发，故能在 CPU 机器上使用 |
-|        [vLLM](https://github.com/vllm-project/vllm)         | 适合高并发、低延迟的场景       | 支持多 GPU 并行、批处理，是 GPU 服务器部署的不二之选                                        |
-| [Transformers](https://github.com/huggingface/transformers) | 适合科研人员             | 既支持推理，也支持训练，可以深度自定义推理过程，但性能一般                                          |
+|推理引擎|场景|介绍|
+| -- | -- | -- |
+|[Ollama](https://github.com/ollama/ollama)|适合个人开发者和轻量级应用|基于 [llama.cpp](https://github.com/ggml-org/llama.cpp) 开发，支持 CPU 推理，安装简单，开箱即用，适合快速原型开发和测试|
+|[vLLM](https://github.com/vllm-project/vllm)|适合高并发生产环境|支持多 GPU 并行、批处理、PagedAttention，吞吐量高，延迟低，适合大规模服务部署|
+|[Transformers](https://github.com/huggingface/transformers)|适合模型研究和实验|提供完整的模型训练和推理接口，支持模型微调、量化、加速，适合研究人员和需要深度定制的场景|
+|[SGLang](https://github.com/sgl-project/sglang)|适合需要复杂推理流程的场景|支持结构化输出、并行推理、流式输出，特别适合需要多轮对话和复杂推理的应用|
+|[LMDeploy](https://github.com/InternLM/lmdeploy)|适合企业级部署和边缘计算|由上海人工智能实验室开发，提供完整的模型量化、加速和部署工具链，支持多种硬件平台，特别适合资源受限场景|
 
-下面介绍如何部署这三款推理引擎，简要部署步骤见本项目的 [deploy](/deploy) 目录。
+下面介绍如何部署 Ollama, vLLM, Transformers 这三款推理引擎，简要部署步骤见本项目的 [deploy](/deploy) 目录。
 
 目录：
 
@@ -83,7 +85,9 @@ vllm serve [YOUR MODEL or MODEL PATH]
 
 当然对于不同的模型，启动参数也略有不同，需要做一定的配适。比如对于 `deepseek-r1` 这类推理模型，必须添加参数 `--enable-reasoning --reasoning-parser deepseek_r1`。具体每个模型如何使用 vLLM，可参考 vLLM 官方文档或模型文档。
 
-> **PS:** vLLM 的 API 服务遵循 OpenAI 的接口协议。
+> \[!NOTE\]
+> 
+> vLLM 的 API Server 遵循 OpenAI 的接口协议。
 
 目录：
 
